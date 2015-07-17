@@ -3,43 +3,75 @@
 
 using namespace std;
 
+void testAssert(string msg)
+{
+	cout << "=========================== Test " << msg << " ==================================" << endl;
+}
+
+void findObjAssert(Position p, int searchInt) {
+	if (p != NULL) {
+		cout << "Found " << searchInt << " in list." << endl;
+	}else {
+		cout << "Can not found " << searchInt << " in list." << endl;
+	}
+}
+
 int main()
 {
-	List mylist = List(1);
-	Position p;
+	// Init
+	testAssert("init 100");
+	List mylist = List(100);
+	Position p = mylist.getLast();
+	mylist.show();
 
-	if( mylist.isEmpty() ) {
-		cout << "List is Empty" << endl;
+	// insert before
+	testAssert("insert before");
+	int i;
+	for(i = 0; i < 10; i++) {
+		p = mylist.insert(i, p, List::BEFORE);
 	}
+	mylist.show();
 
-	p = mylist.getHead();
-	p = mylist.insert(2, p);
-	p = mylist.insert(4, p);
-	p = mylist.insert(6, p);
-	
-	int searchObj = 3;
-
-	if (!mylist.find(searchObj)) {
-		cout << "List is not include " << searchObj << endl;
+	// insert after
+	testAssert("insert after");
+	p = mylist.getLast();
+	for(i = 0; i < 10; i++) {
+		p = mylist.insert(i, p, List::AFTER);
 	}
+	mylist.show();
 
-	searchObj = 4;
-	p = mylist.find(searchObj);
-	if ( p != NULL) {
-		cout << searchObj << " was found, the next is ";
-		if (p->next != NULL) {
-			cout << p->next->data << endl;
-		} else {
-			cout << "nothing" << endl;
-		}
+	// clear
+	testAssert("clear");
+	mylist.clear();
+	mylist.show();
+
+	// init
+	testAssert("init 0~9");
+	mylist.init(0);
+	p = mylist.getLast();
+	for(i = 1; i < 10; i++) {
+		p = mylist.insert(i, p, List::AFTER);
 	}
+	mylist.show();
 
-	int i = 0;
-	p = mylist.getHead();
-	for(i = 0; i < 10 ; i++) {
-		p = mylist.insert(i, p);
-	}
+	// find
+	testAssert("find()");
+	mylist.show();
+	findObjAssert(mylist.find(5), 5);
+	findObjAssert(mylist.find(10), 10);
 
+	// delete
+	testAssert("deleteNode(1)");
+	findObjAssert(mylist.find(1), 1);
+	mylist.deleteNode(1);
+	findObjAssert(mylist.find(1), 1);
+	mylist.show();
+
+
+	testAssert("deleteNode(p)");
+	findObjAssert(mylist.find(7), 7);
+	mylist.deleteNode(mylist.find(7));
+	findObjAssert(mylist.find(7), 7);
 	mylist.show();
 	return 0;
 }
