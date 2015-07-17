@@ -1,5 +1,5 @@
 CC		= g++
-CFLAGS		= -g -c -Wall
+CFLAGS		= -g -c -Wall -std=c++11 -stdlib=libc++
 LDFLAGS		= 
 SOURCES		= testlist.cpp list.cpp
 INCLUDES	= -I.

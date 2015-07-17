@@ -8,7 +8,7 @@ void testAssert(string msg)
 	cout << "=========================== Test " << msg << " ==================================" << endl;
 }
 
-void findObjAssert(Position p, int searchInt) {
+void findObjAssert(void* p, int searchInt) {
 	if (p != NULL) {
 		cout << "Found " << searchInt << " in list." << endl;
 	}else {
@@ -21,7 +21,7 @@ int main()
 	// Init
 	testAssert("init 100");
 	List mylist = List(100);
-	Position p = mylist.getLast();
+	List::Position p = mylist.getLast();
 	mylist.show();
 
 	// insert before

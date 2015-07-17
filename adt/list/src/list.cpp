@@ -10,7 +10,7 @@ List::List(ElementType e)
 	List::init(e);
 }
 
-Position List::init(ElementType e)
+List::Position List::init(ElementType e)
 {
 	if(head == NULL && last == NULL) {
 		Node * newNode = new struct Node;
@@ -29,27 +29,27 @@ bool List::isEmpty()
 	return (head == NULL);
 }
 
-Position List::getHead()
+List::Position List::getHead()
 {
 	return head;
 }
 
-Position List::getLast()
+List::Position List::getLast()
 {
 	return last;
 }
 
-Position List::getNext(Position p)
+List::Position List::getNext(List::Position p)
 {
 	return p->next;
 }
 
-Position List::getBefore(Position p)
+List::Position List::getBefore(List::Position p)
 {
 	return p->before;
 }
 
-Position List::insert(ElementType e, Position p, List::INSERT_TYPE type)
+List::Position List::insert(ElementType e, List::Position p, List::INSERT_TYPE type)
 {
 	Node * newNode = new struct Node;
 	newNode->data = e;
@@ -62,7 +62,7 @@ Position List::insert(ElementType e, Position p, List::INSERT_TYPE type)
 			newNode->next = p;
 			p->before = newNode;
 		} else{
-			Position pBefore;
+			List::Position pBefore;
 
 			pBefore = p->before;
 
@@ -80,7 +80,7 @@ Position List::insert(ElementType e, Position p, List::INSERT_TYPE type)
 			newNode->before = p;
 			p->next = newNode;
 		} else {
-			Position pNext;
+			List::Position pNext;
 
 			pNext = p->next;
 
@@ -96,9 +96,9 @@ Position List::insert(ElementType e, Position p, List::INSERT_TYPE type)
 	return newNode;
 }
 
-Position List::find(ElementType e)
+List::Position List::find(ElementType e)
 {
-	Position p;
+	List::Position p;
 	p = head;
 
 	while(p != NULL && p->data != e) {
@@ -110,7 +110,7 @@ Position List::find(ElementType e)
 
 bool List::deleteNode(ElementType e)
 {
-	Position p;
+	List::Position p;
 	p = find(e);
 	return List::deleteNode(p);
 }
@@ -118,8 +118,8 @@ bool List::deleteNode(ElementType e)
 bool List::deleteNode(Position p)
 {
 	if ( p != NULL ) {
-		Position pBefore = p->before;
-		Position pNext = p->next;
+		List::Position pBefore = p->before;
+		List::Position pNext = p->next;
 		
 		if(pBefore != NULL) {
 			pBefore->next = pNext;
@@ -137,7 +137,7 @@ bool List::deleteNode(Position p)
 
 void List::clear()
 {
-	Position p,tmp;
+	List::Position p,tmp;
 	p = head;
 	while(p != NULL) {
 		tmp = p->next;
