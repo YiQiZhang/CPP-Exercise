@@ -35,6 +35,7 @@ int main()
 	}
 
 	int i = 0;
+	p = mylist.getHead();
 	for(i = 0; i < 10 ; i++) {
 		p = mylist.insert(i, p);
 	}

@@ -9,6 +9,7 @@ struct Node
 {
 	ElementType data;
 	Position next;
+	Position before;
 };
 
 class List
