@@ -1,7 +1,7 @@
 CC		= g++
 CFLAGS		= -g -c -Wall -std=c++11 -stdlib=libc++
 LDFLAGS		= 
-SOURCES		= testlist.cpp list.cpp
+SOURCES		= testlist.cpp
 INCLUDES	= -I.
 OBJECTS		= $(SOURCES:.cpp=.o)
 TARGET		= testlist

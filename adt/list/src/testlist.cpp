@@ -20,15 +20,15 @@ int main()
 {
 	// Init
 	testAssert("init 100");
-	List mylist = List(100);
-	List::Position p = mylist.getLast();
+	List<int> mylist(100);
+	List<int>::Position p = mylist.getLast();
 	mylist.show();
 
 	// insert before
 	testAssert("insert before");
 	int i;
 	for(i = 0; i < 10; i++) {
-		p = mylist.insert(i, p, List::BEFORE);
+		p = mylist.insert(i, p, List<int>::BEFORE);
 	}
 	mylist.show();
 
@@ -36,7 +36,7 @@ int main()
 	testAssert("insert after");
 	p = mylist.getLast();
 	for(i = 0; i < 10; i++) {
-		p = mylist.insert(i, p, List::AFTER);
+		p = mylist.insert(i, p, List<int>::AFTER);
 	}
 	mylist.show();
 
@@ -50,7 +50,7 @@ int main()
 	mylist.init(0);
 	p = mylist.getLast();
 	for(i = 1; i < 10; i++) {
-		p = mylist.insert(i, p, List::AFTER);
+		p = mylist.insert(i, p, List<int>::AFTER);
 	}
 	mylist.show();
 
@@ -73,5 +73,6 @@ int main()
 	mylist.deleteNode(mylist.find(7));
 	findObjAssert(mylist.find(7), 7);
 	mylist.show();
+
 	return 0;
 }
