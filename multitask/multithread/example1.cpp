@@ -46,6 +46,8 @@ int main(int argc, char ** argv)
       exit(-1);
     }
   }
+
+  cout << "main(): program exiting." << endl;
   pthread_exit(NULL);
   
   return 0;

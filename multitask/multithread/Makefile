@@ -1,10 +1,10 @@
 CC		= g++
 CFLAGS		= -g -c -Wall -std=c++11 -stdlib=libc++
 LDFLAGS		= 
-SOURCES		= example.cpp example1.cpp
+SOURCES		= example.cpp example1.cpp example2.cpp
 INCLUDES	= -I.
 OBJECTS		= $(SOURCES:.cpp=.o)
-TARGET		= example.out example1.out
+TARGET		= example.out example1.out example2.out
 
 all: $(SOURCES) $(TARGET)
 
