@@ -3,9 +3,8 @@
 #include <string>
 #include "eventQueue.h"
 #include "errorHandler.h"
-#include <cctype>
 
-using std::string;
+using namespace std;
 
 int main(int argc, char ** argv)
 {
@@ -16,8 +15,7 @@ int main(int argc, char ** argv)
 		t1.push_datetime = 1;
 		t1.start_datetime = 2;
 		t1.task_type = 1;
-		t1.task_info = "i am task ";
-		t1.task_info = t1.task_info + string(i);
+		t1.task_info = string("i am task ") + to_string(i);
 
 		queue.push(t1);
 	}
