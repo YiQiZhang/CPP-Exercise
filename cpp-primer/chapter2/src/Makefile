@@ -1,10 +1,10 @@
 CC			= g++
 CFLAGS		= -g -c -Wall
 LDFLAGS		= 
-SOURCES		= client.cpp tcpstream.cpp tcpconnector.cpp
+SOURCES		= 
 INCLUDES	= -I.
 OBJECTS		= $(SOURCES:.cpp=.o)
-TARGET		= client
+TARGET		= 
 
 
 a : a.o helloworld.o 
