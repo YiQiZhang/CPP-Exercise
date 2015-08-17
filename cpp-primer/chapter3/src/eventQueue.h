@@ -2,11 +2,11 @@
 #ifndef EVENTQUEUE_H_
 #define EVENTQUEUE_H_
 #include <string>
-#include <vector>
+#include <list>
 #include <ctime>
 
 using std::string;
-using std::vector;
+using std::list;
 
 struct task
 {
@@ -22,9 +22,12 @@ class EventQueue
 {
 public:
 	EventQueue();
+	bool isEmpty();
 	int push(task t);
+	const task& first();
+	task& popFirst();
 	void show();
 private:
-	vector<task> task_list;
+	list<task> task_list;
 };
 #endif
