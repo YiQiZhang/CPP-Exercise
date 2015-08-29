@@ -1,11 +1,10 @@
 CC			= g++
-CC			= g++
 CFLAGS		= -g -c -Wall -std=c++11 -stdlib=libc++
 LDFLAGS		= 
-SOURCES		= server.cpp eventQueue.cpp
+SOURCES		= main.cpp TextQuery.cpp
 INCLUDES	= -I.
 OBJECTS		= $(SOURCES:.cpp=.o)
-TARGET		= server
+TARGET		= main
 
 
 all: $(SOURCES) $(TARGET)
