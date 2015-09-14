@@ -1,18 +1,12 @@
 CC		= g++
 CFLAGS		= -g -c -Wall -std=c++11 -stdlib=libc++
 LDFLAGS		= 
-SOURCES		= testlist.cpp testSTLList.cpp
+SOURCES		= testlist.cpp testSTLList.cpp polynomial.cpp testPolynomial.cpp
 INCLUDES	= -I.
 OBJECTS		= $(SOURCES:.cpp=.o)
-TARGET		= testlist testSTLList
+TARGET		= testlist testSTLList testPolynomial
 
 all: $(SOURCES) $(TARGET)
-
-testlist: testlist.o
-	$(CC) $(LDFLAGS) testlist.o -o testlist
-
-testSTLList: testSTLList.o
-	$(CC) $(LDFLAGS) testSTLList.o -o testSTLList
 
 .cpp.o:
 	$(CC) $(CFLAGS) $(INCLUDES) $< -o $@
