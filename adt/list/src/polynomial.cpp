@@ -62,8 +62,7 @@ polynomial &polynomial::operator=(polynomial &&p) noexcept
 
 polynomial::~polynomial()
 {
-    cout << *this;
-    cout << "Destory!" << endl;
+    
 }
 
 list<item>::iterator polynomial::find(int exponent)
@@ -82,19 +81,18 @@ void polynomial::push(const item &i)
 {
     auto it = data.begin();
     
+    for(; it != data.end(); ++it) {
+        if (it->exponent == i.exponent) {
+            it->coefficient += i.coefficient;
+            break;
+        } else if(it->exponent > i.exponent) {
+            data.insert(it, i);
+            break;
+        }
+    }
+
     if(it == data.end()) {
         data.insert(it, i);
-        
-    } else {
-        for(; it != data.end(); ++it) {
-            if (it->exponent == i.exponent) {
-                it->coefficient += i.coefficient;
-                break;
-            } else if(it->exponent > i.exponent) {
-                data.insert(it, i);
-                break;
-            }
-        }
     }
 }
 
@@ -111,8 +109,12 @@ polynomial polynomial::operator+(const polynomial &rhs) const
 polynomial polynomial::operator-(const polynomial &rhs) const
 {
     polynomial p(*this);
+    for (const auto &i : rhs.data) {
+        item newItem(-i.coefficient, i.exponent);
+        p.push(newItem);
+    }
     
-    return operator+(rhs);
+    return p;
 }
 
 polynomial polynomial::operator*(const polynomial &rhs) const
@@ -135,8 +137,12 @@ std::ostream &operator<<(std::ostream &os, const polynomial &p)
 {
     bool isFirst = true;
     for(const auto &i : p.data) {
+        if (i.coefficient == 0) {
+            continue;
+        }
+        
         if(!isFirst) {
-            if (i.coefficient >= 0) {
+            if (i.coefficient > 0) {
                 cout << "+ ";
             } else {
                 cout << "- ";
