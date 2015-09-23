@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
