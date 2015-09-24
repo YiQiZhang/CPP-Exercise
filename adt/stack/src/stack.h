@@ -56,6 +56,9 @@ public:
     bool isEmpty() const {
         return topIndex <= 0 ? true : false;
     }
+    size_t size() const {
+        return topIndex;
+    }
 private:
     size_t maxSize;
     size_t topIndex;

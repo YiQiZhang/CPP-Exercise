@@ -60,13 +60,50 @@ CMAKE_SOURCE_DIR = /Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src
 CMAKE_BINARY_DIR = /Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/suffixCalculator.dir
+
+# All Build rule for target.
+CMakeFiles/suffixCalculator.dir/all:
+	$(MAKE) -f CMakeFiles/suffixCalculator.dir/build.make CMakeFiles/suffixCalculator.dir/depend
+	$(MAKE) -f CMakeFiles/suffixCalculator.dir/build.make CMakeFiles/suffixCalculator.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/CMakeFiles --progress-num=1,2 "Built target suffixCalculator"
+.PHONY : CMakeFiles/suffixCalculator.dir/all
+
+# Include target in all.
+all: CMakeFiles/suffixCalculator.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/suffixCalculator.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/suffixCalculator.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/CMakeFiles 0
+.PHONY : CMakeFiles/suffixCalculator.dir/rule
+
+# Convenience name for target.
+suffixCalculator: CMakeFiles/suffixCalculator.dir/rule
+
+.PHONY : suffixCalculator
+
+# clean rule for target.
+CMakeFiles/suffixCalculator.dir/clean:
+	$(MAKE) -f CMakeFiles/suffixCalculator.dir/build.make CMakeFiles/suffixCalculator.dir/clean
+.PHONY : CMakeFiles/suffixCalculator.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/suffixCalculator.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/symmetryCheck.dir
 
 # All Build rule for target.
 CMakeFiles/symmetryCheck.dir/all:
 	$(MAKE) -f CMakeFiles/symmetryCheck.dir/build.make CMakeFiles/symmetryCheck.dir/depend
 	$(MAKE) -f CMakeFiles/symmetryCheck.dir/build.make CMakeFiles/symmetryCheck.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/CMakeFiles --progress-num=1,2 "Built target symmetryCheck"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/CMakeFiles --progress-num=3,4 "Built target symmetryCheck"
 .PHONY : CMakeFiles/symmetryCheck.dir/all
 
 # Include target in all.

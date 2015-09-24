@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named suffixCalculator
+
+# Build rule for target.
+suffixCalculator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 suffixCalculator
+.PHONY : suffixCalculator
+
+# fast build rule for target.
+suffixCalculator/fast:
+	$(MAKE) -f CMakeFiles/suffixCalculator.dir/build.make CMakeFiles/suffixCalculator.dir/build
+.PHONY : suffixCalculator/fast
+
+#=============================================================================
 # Target rules for targets named symmetryCheck
 
 # Build rule for target.
@@ -122,6 +135,33 @@ symmetryCheck: cmake_check_build_system
 symmetryCheck/fast:
 	$(MAKE) -f CMakeFiles/symmetryCheck.dir/build.make CMakeFiles/symmetryCheck.dir/build
 .PHONY : symmetryCheck/fast
+
+suffixCalculator.o: suffixCalculator.cpp.o
+
+.PHONY : suffixCalculator.o
+
+# target to build an object file
+suffixCalculator.cpp.o:
+	$(MAKE) -f CMakeFiles/suffixCalculator.dir/build.make CMakeFiles/suffixCalculator.dir/suffixCalculator.cpp.o
+.PHONY : suffixCalculator.cpp.o
+
+suffixCalculator.i: suffixCalculator.cpp.i
+
+.PHONY : suffixCalculator.i
+
+# target to preprocess a source file
+suffixCalculator.cpp.i:
+	$(MAKE) -f CMakeFiles/suffixCalculator.dir/build.make CMakeFiles/suffixCalculator.dir/suffixCalculator.cpp.i
+.PHONY : suffixCalculator.cpp.i
+
+suffixCalculator.s: suffixCalculator.cpp.s
+
+.PHONY : suffixCalculator.s
+
+# target to generate assembly for a file
+suffixCalculator.cpp.s:
+	$(MAKE) -f CMakeFiles/suffixCalculator.dir/build.make CMakeFiles/suffixCalculator.dir/suffixCalculator.cpp.s
+.PHONY : suffixCalculator.cpp.s
 
 symmetryCheck.o: symmetryCheck.cpp.o
 
@@ -158,7 +198,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... suffixCalculator"
 	@echo "... symmetryCheck"
+	@echo "... suffixCalculator.o"
+	@echo "... suffixCalculator.i"
+	@echo "... suffixCalculator.s"
 	@echo "... symmetryCheck.o"
 	@echo "... symmetryCheck.i"
 	@echo "... symmetryCheck.s"

@@ -1,1 +1,2 @@
+/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/CMakeFiles/suffixCalculator.dir
 /Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/CMakeFiles/symmetryCheck.dir

@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/error.h
+iostream
+-
+string
+-
+
+/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/stack.h
+memory
+-
+error.h
+/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/error.h
+
+/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/suffixCalculator.cpp
+iostream
+-
+string
+-
+sstream
+-
+functional
+-
+error.h
+/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/error.h
+stack.h
+/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/stack.h
+

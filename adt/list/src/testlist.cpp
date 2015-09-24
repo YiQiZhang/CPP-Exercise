@@ -1,7 +1,10 @@
 #include <iostream>
+#include <string>
 #include "list.h"
 
-using namespace std;
+using std::string;
+using std::cout;
+using std::endl;
 
 void testAssert(string msg)
 {
