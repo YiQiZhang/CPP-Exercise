@@ -1,9 +1,9 @@
 PROJECT (STACKTEST)
 SET(CMAKE_CXX_STANDARD 11)
 SET(CXX_STANDARD_REQUIRED)
-SET(SRC_LIST symmetryCheck.cpp)
 MESSAGE(STATUS "This is BINARY dir " ${STACKTEST_BINARY_DIR}) 
 MESSAGE(STATUS "This is SOURCE dir " ${STACKTEST_SOURCE_DIR}) 
-ADD_EXECUTABLE(symmetryCheck ${SRC_LIST})
 
-ADD_EXECUTABLE(suffixCalculator suffixCalculator.cpp)
+ADD_EXECUTABLE(symmetryCheck symmetryCheck.cpp)
+ADD_EXECUTABLE(testSuffixCalculator testSuffixCalculator.cpp)
+ADD_EXECUTABLE(testNifixExpression testNifixExpression.cpp)

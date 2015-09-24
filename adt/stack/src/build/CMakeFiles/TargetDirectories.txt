@@ -1,2 +1,3 @@
-/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/CMakeFiles/suffixCalculator.dir
+/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/CMakeFiles/testNifixExpression.dir
 /Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/CMakeFiles/symmetryCheck.dir
+/Users/Jerry/WorkSpace/CPP-Exercise/adt/stack/src/build/CMakeFiles/testSuffixCalculator.dir

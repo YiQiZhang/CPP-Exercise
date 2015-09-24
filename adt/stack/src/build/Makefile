@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named suffixCalculator
-
-# Build rule for target.
-suffixCalculator: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 suffixCalculator
-.PHONY : suffixCalculator
-
-# fast build rule for target.
-suffixCalculator/fast:
-	$(MAKE) -f CMakeFiles/suffixCalculator.dir/build.make CMakeFiles/suffixCalculator.dir/build
-.PHONY : suffixCalculator/fast
-
-#=============================================================================
 # Target rules for targets named symmetryCheck
 
 # Build rule for target.
@@ -136,32 +123,31 @@ symmetryCheck/fast:
 	$(MAKE) -f CMakeFiles/symmetryCheck.dir/build.make CMakeFiles/symmetryCheck.dir/build
 .PHONY : symmetryCheck/fast
 
-suffixCalculator.o: suffixCalculator.cpp.o
+#=============================================================================
+# Target rules for targets named testNifixExpression
 
-.PHONY : suffixCalculator.o
+# Build rule for target.
+testNifixExpression: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 testNifixExpression
+.PHONY : testNifixExpression
 
-# target to build an object file
-suffixCalculator.cpp.o:
-	$(MAKE) -f CMakeFiles/suffixCalculator.dir/build.make CMakeFiles/suffixCalculator.dir/suffixCalculator.cpp.o
-.PHONY : suffixCalculator.cpp.o
+# fast build rule for target.
+testNifixExpression/fast:
+	$(MAKE) -f CMakeFiles/testNifixExpression.dir/build.make CMakeFiles/testNifixExpression.dir/build
+.PHONY : testNifixExpression/fast
 
-suffixCalculator.i: suffixCalculator.cpp.i
+#=============================================================================
+# Target rules for targets named testSuffixCalculator
 
-.PHONY : suffixCalculator.i
+# Build rule for target.
+testSuffixCalculator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 testSuffixCalculator
+.PHONY : testSuffixCalculator
 
-# target to preprocess a source file
-suffixCalculator.cpp.i:
-	$(MAKE) -f CMakeFiles/suffixCalculator.dir/build.make CMakeFiles/suffixCalculator.dir/suffixCalculator.cpp.i
-.PHONY : suffixCalculator.cpp.i
-
-suffixCalculator.s: suffixCalculator.cpp.s
-
-.PHONY : suffixCalculator.s
-
-# target to generate assembly for a file
-suffixCalculator.cpp.s:
-	$(MAKE) -f CMakeFiles/suffixCalculator.dir/build.make CMakeFiles/suffixCalculator.dir/suffixCalculator.cpp.s
-.PHONY : suffixCalculator.cpp.s
+# fast build rule for target.
+testSuffixCalculator/fast:
+	$(MAKE) -f CMakeFiles/testSuffixCalculator.dir/build.make CMakeFiles/testSuffixCalculator.dir/build
+.PHONY : testSuffixCalculator/fast
 
 symmetryCheck.o: symmetryCheck.cpp.o
 
@@ -190,6 +176,60 @@ symmetryCheck.cpp.s:
 	$(MAKE) -f CMakeFiles/symmetryCheck.dir/build.make CMakeFiles/symmetryCheck.dir/symmetryCheck.cpp.s
 .PHONY : symmetryCheck.cpp.s
 
+testNifixExpression.o: testNifixExpression.cpp.o
+
+.PHONY : testNifixExpression.o
+
+# target to build an object file
+testNifixExpression.cpp.o:
+	$(MAKE) -f CMakeFiles/testNifixExpression.dir/build.make CMakeFiles/testNifixExpression.dir/testNifixExpression.cpp.o
+.PHONY : testNifixExpression.cpp.o
+
+testNifixExpression.i: testNifixExpression.cpp.i
+
+.PHONY : testNifixExpression.i
+
+# target to preprocess a source file
+testNifixExpression.cpp.i:
+	$(MAKE) -f CMakeFiles/testNifixExpression.dir/build.make CMakeFiles/testNifixExpression.dir/testNifixExpression.cpp.i
+.PHONY : testNifixExpression.cpp.i
+
+testNifixExpression.s: testNifixExpression.cpp.s
+
+.PHONY : testNifixExpression.s
+
+# target to generate assembly for a file
+testNifixExpression.cpp.s:
+	$(MAKE) -f CMakeFiles/testNifixExpression.dir/build.make CMakeFiles/testNifixExpression.dir/testNifixExpression.cpp.s
+.PHONY : testNifixExpression.cpp.s
+
+testSuffixCalculator.o: testSuffixCalculator.cpp.o
+
+.PHONY : testSuffixCalculator.o
+
+# target to build an object file
+testSuffixCalculator.cpp.o:
+	$(MAKE) -f CMakeFiles/testSuffixCalculator.dir/build.make CMakeFiles/testSuffixCalculator.dir/testSuffixCalculator.cpp.o
+.PHONY : testSuffixCalculator.cpp.o
+
+testSuffixCalculator.i: testSuffixCalculator.cpp.i
+
+.PHONY : testSuffixCalculator.i
+
+# target to preprocess a source file
+testSuffixCalculator.cpp.i:
+	$(MAKE) -f CMakeFiles/testSuffixCalculator.dir/build.make CMakeFiles/testSuffixCalculator.dir/testSuffixCalculator.cpp.i
+.PHONY : testSuffixCalculator.cpp.i
+
+testSuffixCalculator.s: testSuffixCalculator.cpp.s
+
+.PHONY : testSuffixCalculator.s
+
+# target to generate assembly for a file
+testSuffixCalculator.cpp.s:
+	$(MAKE) -f CMakeFiles/testSuffixCalculator.dir/build.make CMakeFiles/testSuffixCalculator.dir/testSuffixCalculator.cpp.s
+.PHONY : testSuffixCalculator.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -198,14 +238,18 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... suffixCalculator"
+	@echo "... testNifixExpression"
 	@echo "... symmetryCheck"
-	@echo "... suffixCalculator.o"
-	@echo "... suffixCalculator.i"
-	@echo "... suffixCalculator.s"
+	@echo "... testSuffixCalculator"
 	@echo "... symmetryCheck.o"
 	@echo "... symmetryCheck.i"
 	@echo "... symmetryCheck.s"
+	@echo "... testNifixExpression.o"
+	@echo "... testNifixExpression.i"
+	@echo "... testNifixExpression.s"
+	@echo "... testSuffixCalculator.o"
+	@echo "... testSuffixCalculator.i"
+	@echo "... testSuffixCalculator.s"
 .PHONY : help
 
 

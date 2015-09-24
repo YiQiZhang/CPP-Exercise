@@ -44,6 +44,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/suffixCalculator.dir/DependInfo.cmake"
+  "CMakeFiles/testNifixExpression.dir/DependInfo.cmake"
   "CMakeFiles/symmetryCheck.dir/DependInfo.cmake"
+  "CMakeFiles/testSuffixCalculator.dir/DependInfo.cmake"
   )
