@@ -1,0 +1,7 @@
+PROJECT (STACKTEST)
+SET(CMAKE_CXX_STANDARD 11)
+SET(CXX_STANDARD_REQUIRED)
+
+ADD_EXECUTABLE(testSTLList testSTLList.cpp)
+ADD_EXECUTABLE(testlist testlist.cpp)
+ADD_EXECUTABLE(testPolynomial testPolynomial.cpp polynomial.cpp)
