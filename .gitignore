@@ -27,5 +27,5 @@
 *.out
 *.app
 
-# Cmake
-build/
+# CMake
+**/build/*
