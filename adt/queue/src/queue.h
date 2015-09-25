@@ -59,7 +59,7 @@ public:
 	}
 	bool isFull() const
 	{
-		return maxSize >= size ? true : false;
+		return size >= maxSize ? true : false;
 	}
 	~queue() {
 		datas.release();
