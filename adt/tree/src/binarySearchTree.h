@@ -1,13 +1,12 @@
 //
 //  binarySearchTree.h
-//  normaltree
 //
 //  Created by Jerry on 10/1/15.
 //  Copyright (c) 2015 Jerry. All rights reserved.
 //
 
-#ifndef BINARY_TREE_H
-#define BINARY_TREE_H
+#ifndef BINARY_SEARCH_TREE_H
+#define BINARY_SEARCH_TREE_H
 
 #include <iostream>
 #include <string>
@@ -15,6 +14,7 @@
 using std::ostream;
 using std::endl;
 using std::string;
+using std::shared_ptr;
 
 template <typename> class BinarySearchTree;
 template <typename T> ostream &operator<<(ostream &, const BinarySearchTree<T> &);
@@ -25,7 +25,7 @@ class BinarySearchTree
 	friend ostream &operator<<<T>(ostream &, const BinarySearchTree<T> &);
 public:
 	struct TreeNode;
-	typedef TreeNode *position;
+	typedef shared_ptr<TreeNode> position;
 	struct TreeNode{
 		T element;
 		position left;
@@ -53,14 +53,14 @@ public:
 				++target->count;
 				isInserted = true;
 			} else if (ele < target->element) {
-				if (target->left == NULL) {
+				if (target->left == nullptr) {
 					target->left = makeNewNode(ele);
 					isInserted = true;
 				} else {
 					target = target->left;
 				}
 			} else {
-				if (target->right == NULL) {
+				if (target->right == nullptr) {
 					target->right = makeNewNode(ele);
 					isInserted = true;
 				} else {
@@ -78,7 +78,7 @@ public:
 	void softDelete(const T &ele)
 	{
 		position p = find(ele);
-		if (p != NULL) {
+		if (p != nullptr) {
 			p->count = 0;
 		}
 	}
@@ -92,9 +92,9 @@ private:
 
 	position makeNewNode(const T &ele)
 	{
-		position p = new TreeNode;
+		position p(new TreeNode);
 		p->element = ele;
-		p->left = p->right = NULL;
+		p->left = p->right = nullptr;
 		p->count = 1;
 
 		return p;
@@ -109,10 +109,10 @@ private:
 			os << node->element << '(' << node->count << ')' << endl;
 		}
 
-		if (node->left != NULL) {
+		if (node->left != nullptr) {
 			printRecursively(os, node->left, deep + 1);
 		}
-		if (node->right != NULL) {
+		if (node->right != nullptr) {
 			printRecursively(os, node->right, deep + 1);
 		}
 	}
@@ -123,44 +123,43 @@ private:
 			if (p->count > 0){
 				return p;
 			} else {
-				return NULL;
+				return nullptr;
 			}
 		} else  if (ele < p->element) {
-			if (p->left != NULL) {
+			if (p->left != nullptr) {
 				return findRecursively(p->left, ele);
 			} else {
-				return NULL;
+				return nullptr;
 			}
 		} else {
-			if (p->right != NULL) {
+			if (p->right != nullptr) {
 				return findRecursively(p->right, ele);
 			} else {
-				return NULL;
+				return nullptr;
 			}
 		}
 	}
 
 	position hardDeleteRecursively(const T &ele, position p)
 	{
-		if (p == NULL) {
+		if (p == nullptr) {
 			
 		} else if (ele < p->element) {
 			p->left = hardDeleteRecursively(ele, p->left);
 		} else if (ele > p->element) {
 			p->right = hardDeleteRecursively(ele, p->right);
-		} else if (p->left != NULL && p->right != NULL) {
+		} else if (p->left != nullptr && p->right != nullptr) {
 			position min = findMin(p->right);
 			p->element = min->element;
 			p->count = min->count;
 			p->right = hardDeleteRecursively(p->element, p->right);
 		} else {
 			position tmp = p;
-			if (p->left != NULL) {
+			if (p->left != nullptr) {
 				p = p->left;
-			} else if (p->right != NULL) {
+			} else if (p->right != nullptr) {
 				p = p->right;
 			}
-			delete tmp;
 		}
 
 		return p;
@@ -169,7 +168,7 @@ private:
 	position findMin(position p)
 	{
 		position res = p;
-		while (res->left != NULL)
+		while (res->left != nullptr)
 			res = res->left;
 		return res;
 	}
