@@ -44,38 +44,17 @@ public:
 
 	}
 
-	void insert(const T &ele)
-	{
-		bool isInserted = false;
-		position target = root;
-		while (!isInserted) {
-			if (ele == target->element) {
-				++target->count;
-				isInserted = true;
-			} else if (ele < target->element) {
-				if (target->left == nullptr) {
-					target->left = makeNewNode(ele);
-					isInserted = true;
-				} else {
-					target = target->left;
-				}
-			} else {
-				if (target->right == nullptr) {
-					target->right = makeNewNode(ele);
-					isInserted = true;
-				} else {
-					target = target->right;
-				}
-			}
-		}
-	}
-
 	position find(const T &ele) const
 	{
 		return findRecursively(root, ele);
 	}
 
-	void softDelete(const T &ele)
+	virtual void insert(const T &ele)
+	{
+		root = insertRecursively(root, ele);
+	}
+
+	virtual void softDelete(const T &ele)
 	{
 		position p = find(ele);
 		if (p != nullptr) {
@@ -83,11 +62,11 @@ public:
 		}
 	}
 
-	void hardDelete(const T &ele)
+	virtual void hardDelete(const T &ele)
 	{
 		root = hardDeleteRecursively(ele, root);
 	}
-private:
+protected:
 	position root;
 
 	position makeNewNode(const T &ele)
@@ -140,7 +119,22 @@ private:
 		}
 	}
 
-	position hardDeleteRecursively(const T &ele, position p)
+	virtual position insertRecursively(position p, const T &ele)
+	{
+		if (p == nullptr) {
+			p = makeNewNode(ele);
+		} else if (p->element == ele) {
+			++p->count;
+		} else if (p->element < ele) {
+			p->right = insertRecursively(p->right, ele);
+		} else {
+			p->left = insertRecursively(p->left, ele);
+		}
+
+		return p;
+	}
+
+	virtual position hardDeleteRecursively(const T &ele, position p)
 	{
 		if (p == nullptr) {
 			
