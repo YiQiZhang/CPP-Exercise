@@ -31,6 +31,7 @@ public:
 		position left;
 		position right;
 		int count;
+		int height;
 	};
 	typedef T valueType;
 
@@ -75,6 +76,7 @@ protected:
 		p->element = ele;
 		p->left = p->right = nullptr;
 		p->count = 1;
+		p->height = 0;
 
 		return p;
 	}
@@ -83,9 +85,9 @@ protected:
 	{
 		if (deep > 0) {
 			string space(deep * 2, '-');
-			os << space << node->element << '(' << node->count << ')' << endl;
+			os << space << node->element << "(count: " << node->count << "; height: "  << node->height << ")" << endl;
 		} else {
-			os << node->element << '(' << node->count << ')' << endl;
+			os << node->element << "(count: " << node->count << "; height: "  << node->height << ")" << endl;
 		}
 
 		if (node->left != nullptr) {

@@ -5,3 +5,4 @@ SET(CXX_STANDARD_REQUIRED)
 
 ADD_EXECUTABLE(testTree testTree.cpp)
 ADD_EXECUTABLE(testBinarySearchTree testBinarySearchTree.cpp)
+ADD_EXECUTABLE(testAvlTree testAvlTree.cpp)

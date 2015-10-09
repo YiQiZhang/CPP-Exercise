@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/Jerry/WorkSpace/CPP-Exercise/adt/tree/src/build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/Applications/CMake.app/Contents/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CMake.app/Contents/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named testAvlTree
+
+# Build rule for target.
+testAvlTree: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 testAvlTree
+.PHONY : testAvlTree
+
+# fast build rule for target.
+testAvlTree/fast:
+	$(MAKE) -f CMakeFiles/testAvlTree.dir/build.make CMakeFiles/testAvlTree.dir/build
+.PHONY : testAvlTree/fast
+
+#=============================================================================
 # Target rules for targets named testBinarySearchTree
 
 # Build rule for target.
@@ -135,6 +148,33 @@ testTree: cmake_check_build_system
 testTree/fast:
 	$(MAKE) -f CMakeFiles/testTree.dir/build.make CMakeFiles/testTree.dir/build
 .PHONY : testTree/fast
+
+testAvlTree.o: testAvlTree.cpp.o
+
+.PHONY : testAvlTree.o
+
+# target to build an object file
+testAvlTree.cpp.o:
+	$(MAKE) -f CMakeFiles/testAvlTree.dir/build.make CMakeFiles/testAvlTree.dir/testAvlTree.cpp.o
+.PHONY : testAvlTree.cpp.o
+
+testAvlTree.i: testAvlTree.cpp.i
+
+.PHONY : testAvlTree.i
+
+# target to preprocess a source file
+testAvlTree.cpp.i:
+	$(MAKE) -f CMakeFiles/testAvlTree.dir/build.make CMakeFiles/testAvlTree.dir/testAvlTree.cpp.i
+.PHONY : testAvlTree.cpp.i
+
+testAvlTree.s: testAvlTree.cpp.s
+
+.PHONY : testAvlTree.s
+
+# target to generate assembly for a file
+testAvlTree.cpp.s:
+	$(MAKE) -f CMakeFiles/testAvlTree.dir/build.make CMakeFiles/testAvlTree.dir/testAvlTree.cpp.s
+.PHONY : testAvlTree.cpp.s
 
 testBinarySearchTree.o: testBinarySearchTree.cpp.o
 
@@ -198,8 +238,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... testAvlTree"
 	@echo "... testBinarySearchTree"
 	@echo "... testTree"
+	@echo "... testAvlTree.o"
+	@echo "... testAvlTree.i"
+	@echo "... testAvlTree.s"
 	@echo "... testBinarySearchTree.o"
 	@echo "... testBinarySearchTree.i"
 	@echo "... testBinarySearchTree.s"
