@@ -13,17 +13,24 @@
 #include <vector>
 
 using std::vector;
+using std::cout;
+using std::endl;
 using std::ostream;
 using std::endl;
 using std::string;
 
 template <typename T>
-class PriorrityQueue
+class PriorityQueue
 {
 private:
 	typedef size_t position;
 	size_t nodeCount;
 	vector<T> binaryHeap;
+
+	inline position max(position p1, position p2)
+	{
+		return p1 > p2 ? p1 : p2;
+	}
 
 	void swap(position p1, position p2)
 	{
@@ -34,15 +41,27 @@ private:
 
 	void swim(position p)
 	{
-
+		position t = max(p/2, 1);
+		while(binaryHeap[t] < binaryHeap[p] && p > 1) {
+			swap(p, t);
+			p = t;
+			t = max(p/2, 1);
+		}
 	}
 
 	void sink(position p)
 	{
-
+		position t = p * 2;
+		while(t <= nodeCount) {
+			if (t < nodeCount && binaryHeap[t] < binaryHeap[t + 1]) ++t;
+			if (binaryHeap[p] < binaryHeap[t]) break;
+			swap(p, t);
+			p = t;
+			t = t * 2;
+		}
 	}
 public:
-	PriorrityQueue()
+	PriorityQueue()
 	{
 		T tmp;
 		binaryHeap.push_back(tmp);
@@ -61,6 +80,7 @@ public:
 		swap(1, nodeCount);
 		binaryHeap.pop_back();
 		sink(1);
+		--nodeCount;
 	}
 
 	T top() const
@@ -85,7 +105,7 @@ public:
 		} else {
 			position p = 1;
 			while(p <= nodeCount) {
-				os << p << separator;
+				os << binaryHeap[p] << separator;
 				++p;
 			}
 			os << endl;
